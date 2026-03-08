@@ -15,16 +15,17 @@ const NETWORK = process.env.NETWORK || "base";
 const CDP_API_KEY_ID = process.env.CDP_API_KEY_ID;
 const CDP_API_KEY_SECRET = process.env.CDP_API_KEY_SECRET;
 
-// Create facilitator client
+// Create facilitator client with CDP credentials
 const facilitatorClient = new HTTPFacilitatorClient({
   url: FACILITATOR_URL,
+  ...(CDP_API_KEY_ID && CDP_API_KEY_SECRET && {
+    cdpApiKeyId: CDP_API_KEY_ID,
+    cdpApiKeySecret: CDP_API_KEY_SECRET,
+  }),
 });
 
 // Create x402 resource server with EVM scheme
-const server = new x402ResourceServer(facilitatorClient, {
-  cdpApiKeyId: process.env.CDP_API_KEY_ID,
-  cdpApiKeySecret: process.env.CDP_API_KEY_SECRET,
-});
+const server = new x402ResourceServer(facilitatorClient);
 server.register("eip155:*", new ExactEvmScheme());
 
 // CORS setup

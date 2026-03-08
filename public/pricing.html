@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>x402 Paid APIs - Pricing</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 16px;
+      background: linear-gradient(90deg, #00d9ff, #00ff88);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      font-size: 1.2rem;
+      color: #a0a0a0;
+    }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+    .pricing-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 40px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(0, 217, 255, 0.1);
+    }
+    .price {
+      font-size: 3.5rem;
+      font-weight: bold;
+      margin: 20px 0;
+      background: linear-gradient(90deg, #00d9ff, #00ff88);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .price span {
+      font-size: 1rem;
+      color: #a0a0a0;
+    }
+    .feature-list {
+      list-style: none;
+      margin: 30px 0;
+    }
+    .feature-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+    }
+    .feature-list li:last-child {
+      border-bottom: none;
+    }
+    .feature-list li::before {
+      content: '✓';
+      color: #00ff88;
+      margin-right: 12px;
+      font-weight: bold;
+    }
+    .api-endpoint {
+      background: rgba(0, 217, 255, 0.1);
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-family: 'Monaco', 'Consolas', monospace;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin: 10px 0;
+    }
+    .payment-info {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 40px;
+      margin-bottom: 40px;
+    }
+    .payment-info h2 {
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+    .network-badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #0052ff, #00d9ff);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      margin: 10px 10px 10px 0;
+    }
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(90deg, #00d9ff, #00ff88);
+      color: #1a1a2e;
+      padding: 16px 40px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin-top: 20px;
+    }
+    .cta-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 30px rgba(0, 217, 255, 0.3);
+    }
+    .code-block {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      padding: 20px;
+      margin: 20px 0;
+      overflow-x: auto;
+    }
+    code {
+      font-family: 'Monaco', 'Consolas', monospace;
+      font-size: 0.9rem;
+      color: #00ff88;
+    }
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: #a0a0a0;
+    }
+    .x402-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 8px 16px;
+      border-radius: 8px;
+      margin-top: 20px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>x402 Paid APIs</h1>
+      <p class="subtitle">Internet-native payments for AI agents</p>
+    </header>
+
+    <div class="pricing-grid">
+      <!-- Balance Check API -->
+      <div class="pricing-card">
+        <h2>Balance Check API</h2>
+        <div class="api-endpoint">GET /api/balance</div>
+        <div class="price">$0.01<span>/call</span></div>
+        <p>Real-time cryptocurrency balance verification across multiple chains and tokens.</p>
+        <ul class="feature-list">
+          <li>Multi-chain support (Base, Ethereum, more)</li>
+          <li>All ERC-20 tokens supported</li>
+          <li>Real-time data (2s settlement)</li>
+          <li>Rate limit: 100 calls/minute</li>
+          <li>No API keys required</li>
+          <li>Perfect for AI agents</li>
+        </ul>
+        <div class="code-block">
+          <code>curl http://api.example.com/api/balance?address=0x...&token=USDC</code>
+        </div>
+      </div>
+
+      <!-- Yield Recommendation API -->
+      <div class="pricing-card">
+        <h2>Yield Recommendation API</h2>
+        <div class="api-endpoint">GET /api/yield</div>
+        <div class="price">$0.05<span>/call</span></div>
+        <p>Optimized DeFi yield farming strategies based on your risk profile.</p>
+        <ul class="feature-list">
+          <li>50+ DeFi protocols analyzed</li>
+          <li>Risk-based recommendations</li>
+          <li>Real-time APY data</li>
+          <li>Rate limit: 50 calls/minute</li>
+          <li>No API keys required</li>
+          <li>Custom investment duration</li>
+        </ul>
+        <div class="code-block">
+          <code>curl http://api.example.com/api/yield?amount=10000&risk=medium&duration=30</code>
+        </div>
+      </div>
+    </div>
+
+    <!-- Payment Information -->
+    <div class="payment-info">
+      <h2>💰 Payment Method</h2>
+      <p>Payments are processed via the <strong>x402 Protocol</strong> - HTTP-native crypto payments with instant settlement.</p>
+      
+      <div style="margin: 30px 0;">
+        <span class="network-badge">🔗 USDC on Base</span>
+        <span class="network-badge">⚡ 2-second settlement</span>
+        <span class="network-badge">🔐 No accounts needed</span>
+        <span class="network-badge">🤖 AI-agent ready</span>
+      </div>
+
+      <h3 style="margin: 30px 0 15px;">How It Works:</h3>
+      <ol style="margin-left: 20px; line-height: 2;">
+        <li>Send a request to the API endpoint</li>
+        <li>Receive HTTP 402 with payment instructions</li>
+        <li>Sign payment with your wallet</li>
+        <li>Retry request with payment signature</li>
+        <li>Get instant access to the data</li>
+      </ol>
+
+      <div class="code-block">
+        <code>
+// Example with x402 client
+import { withPaymentInterceptor } from '@x402/core/client';
+
+const api = withPaymentInterceptor(fetchClient, { privateKey: 'YOUR_KEY' });
+
+const balance = await api.get('/api/balance?address=0x...');
+        </code>
+      </div>
+
+      <a href="https://docs.x402.org" class="cta-button" target="_blank">Get Started with x402</a>
+    </div>
+
+    <!-- Testnet Info -->
+    <div class="payment-info">
+      <h2>🧪 Testing on Testnet</h2>
+      <p>Before using mainnet, test your integration on Base Sepolia testnet:</p>
+      <ul class="feature-list">
+        <li>Get testnet USDC: <a href="https://faucets.chain.link/base-sepolia" style="color: #00d9ff;">Chainlink Faucet</a></li>
+        <li>Network: Base Sepolia (Chain ID: 84532)</li>
+        <li>Facilitator: https://x402.org/facilitator</li>
+        <li>Free test transactions</li>
+      </ul>
+    </div>
+
+    <footer>
+      <p>Built with x402 Protocol — Open, free, and effortless payments</p>
+      <div class="x402-badge">
+        Powered by <a href="https://x402.org" style="color: #00d9ff; text-decoration: none;">x402.org</a>
+      </div>
+      <p style="margin-top: 20px; font-size: 0.9rem;">
+        <a href="https://github.com/your-org/x402-apis" style="color: #a0a0a0;">GitHub</a> ·
+        <a href="https://docs.x402.org" style="color: #a0a0a0;">Documentation</a>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

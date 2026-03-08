@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nodejs",
+  "regions": ["iad1"],
+  "env": {
+    "NODE_ENV": "production",
+    "FACILITATOR_URL": "https://api.cdp.coinbase.com/platform/v2/x402",
+    "NETWORK": "base"
+  },
+  "outputDirectory": "dist"
+}

@@ -11,7 +11,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const PAYMENT_ADDRESS = process.env.PAYMENT_ADDRESS || "0x0000000000000000000000000000000000000000";
 const FACILITATOR_URL = process.env.FACILITATOR_URL || "https://x402.org/facilitator";
-const NETWORK = process.env.NETWORK || "base-sepolia";
+const NETWORK = process.env.NETWORK || "base";
+const CDP_API_KEY_ID = process.env.CDP_API_KEY_ID;
+const CDP_API_KEY_SECRET = process.env.CDP_API_KEY_SECRET;
 
 // Create facilitator client
 const facilitatorClient = new HTTPFacilitatorClient({
@@ -19,7 +21,10 @@ const facilitatorClient = new HTTPFacilitatorClient({
 });
 
 // Create x402 resource server with EVM scheme
-const server = new x402ResourceServer(facilitatorClient);
+const server = new x402ResourceServer(facilitatorClient, {
+  cdpApiKeyId: process.env.CDP_API_KEY_ID,
+  cdpApiKeySecret: process.env.CDP_API_KEY_SECRET,
+});
 server.register("eip155:*", new ExactEvmScheme());
 
 // CORS setup

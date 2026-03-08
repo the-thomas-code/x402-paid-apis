@@ -3,7 +3,6 @@
   "buildCommand": "npm run build",
   "devCommand": "npm run dev",
   "installCommand": "npm install",
-  "framework": "nodejs",
   "regions": ["iad1"],
   "env": {
     "NODE_ENV": "production",
